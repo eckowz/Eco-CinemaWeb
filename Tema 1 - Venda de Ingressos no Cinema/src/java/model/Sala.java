@@ -7,7 +7,6 @@ package model;
 
 import java.util.Objects;
 
-
 public class Sala {
 
     private int codigoSala, quantidadeAssentos;
@@ -15,6 +14,9 @@ public class Sala {
     public Sala(int codigoSala, int quantidadeAssentos) {
         this.codigoSala = codigoSala;
         this.quantidadeAssentos = quantidadeAssentos;
+    }
+
+    public Sala() {
     }
 
     public int getCodigoSala() {

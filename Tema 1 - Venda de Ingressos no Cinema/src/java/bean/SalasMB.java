@@ -16,25 +16,45 @@ import model.Sala;
 public class SalasMB {
 
     private List<Sala> listaSalas;
+    private Sala salaSelecionada;
 
     public SalasMB() {
+        salaSelecionada = new Sala();
         listaSalas = new ArrayList<Sala>();
         listaSalas.add(new Sala(1, 13));
         listaSalas.add(new Sala(2, 28));
         listaSalas.add(new Sala(3, 9));
     }
 
-    public boolean addSalas(Sala sala) {
-        return (listaSalas.add(sala));
+    public Sala getSalaSelecionada() {
+        return salaSelecionada;
+    }
+
+    public void setSalaSelecionada(Sala salaSelecionada) {
+        this.salaSelecionada = salaSelecionada;
     }
 
     public List<Sala> getListaSalas() {
         return listaSalas;
     }
 
+    public String addSalas() {
+        listaSalas.add(salaSelecionada);
+        return (this.novaSala());
+    }
+
+    public String novaSala() {
+        salaSelecionada = new Sala();
+        return ("/admin/formCadastroSala?faces-redirect=true");
+    }
+    
+    public void removerSala(Sala sala) {
+        listaSalas.remove(sala);
+    }
+
     public boolean salaExiste(int codigoSala) {
         for (Sala sala : listaSalas) {
-            if (sala.getCodigoSala()==(codigoSala)) {
+            if (sala.getCodigoSala() == (codigoSala)) {
                 return true;
             }
         }
@@ -43,10 +63,10 @@ public class SalasMB {
 
     public Sala buscarSala(int codigoSala) {
         for (Sala sala : listaSalas) {
-            if (sala.getCodigoSala()==(codigoSala)) {
+            if (sala.getCodigoSala() == (codigoSala)) {
                 return sala;
-           }
+            }
         }
         return null;
     }
-} 
+}

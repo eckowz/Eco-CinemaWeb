@@ -39,17 +39,17 @@ public class UsuarioMB {
 
     public String novoUsuario() {
         usuarioSelecionado = new Usuario();
-        return ("/admin/formularioCadastro?faces-redirect=true");
+        return ("/admin/formCadastroUsuario?faces-redirect=true");
     }
 
-    public String adicionarUsuario() {
+    public String addUsuarios() {
         listaUsuarios.add(usuarioSelecionado);
         return (this.novoUsuario());
     }
 
     public String editarUsuario(Usuario u) {
         usuarioSelecionado = u;
-        return ("/admin/formularioEdicao?faces-redirect=true");
+        return ("/admin/formEdicaoUsuario?faces-redirect=true");
     }
 
     public String atualizarUsuario() {
