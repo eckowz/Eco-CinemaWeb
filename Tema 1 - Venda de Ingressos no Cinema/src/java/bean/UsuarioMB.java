@@ -18,6 +18,7 @@ public class UsuarioMB {
         usuarioSelecionado = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
         listaUsuarios.add(new Usuario("admin", "admin"));
+        listaUsuarios.add(new Usuario("Fulano", "123", false));
     }
 
     public Usuario getUsuarioSelecionado() {
@@ -35,29 +36,27 @@ public class UsuarioMB {
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     }
-    
 
-    public String novoUsuario(){
-        usuarioSelecionado=new Usuario();
-        return("/admin/formularioCadastro?faces-redirect=true");
+    public String novoUsuario() {
+        usuarioSelecionado = new Usuario();
+        return ("/admin/formularioCadastro?faces-redirect=true");
     }
 
-    public String adicionarUsuario()
-    {
+    public String adicionarUsuario() {
         listaUsuarios.add(usuarioSelecionado);
-        return(this.novoUsuario());
+        return (this.novoUsuario());
     }
 
-    public String editarUsuario(Usuario u){
+    public String editarUsuario(Usuario u) {
         usuarioSelecionado = u;
-        return("/admin/formularioEdicao?faces-redirect=true");
-    }
-    public String atualizarUsuario()
-    {
-        return("/admin/index?faces-redirect=true");
+        return ("/admin/formularioEdicao?faces-redirect=true");
     }
 
-    public void removerUsuario(Usuario usuario){
+    public String atualizarUsuario() {
+        return ("/admin/index?faces-redirect=true");
+    }
+
+    public void removerUsuario(Usuario usuario) {
         listaUsuarios.remove(usuario);
     }
 

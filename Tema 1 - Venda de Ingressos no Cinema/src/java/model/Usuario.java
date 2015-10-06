@@ -25,6 +25,15 @@ public class Usuario {
         this.estado = "RS";
     }
 
+    public Usuario(String login, String senha, boolean admin) {
+        this.nome = login;
+        this.login = login;
+        this.senha = senha;
+        this.admin = admin;
+        this.sexo = 1;
+        this.estado = "RS";
+    }
+
     public String getNome() {
         return nome;
     }

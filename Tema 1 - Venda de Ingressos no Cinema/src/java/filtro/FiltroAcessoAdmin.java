@@ -13,10 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author lhries
- */
 @WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/faces/admin/*"})
 public class FiltroAcessoAdmin implements Filter {
 
