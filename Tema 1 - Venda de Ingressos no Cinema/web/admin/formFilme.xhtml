@@ -9,31 +9,43 @@
         <ui:composition template="../template.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="sala" value="#{salasMB.listaSalas}" border="1">
+                    <h:dataTable var="filme" value="#{filmesMB.listaFilmes}" border="1">
                         <f:facet name="header">
-                            <h:outputText value="Tabela de Salas" />
+                            <h:outputText value="Tabela de Filmes" />
                         </f:facet>
 
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Código" />
                             </f:facet>
-                            <h:outputText id="idCodigo" value="#{sala.codigoSala}"  />
+                            <h:outputText  id="idCodigo" value="#{filme.codigoFilme}"/>
+                        </h:column>                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome do filme" />
+                            </f:facet>
+                            <h:outputText id="idNome" value="#{filme.nomeFilme}"  />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="Qtd assentos" />
+                                <h:outputText value="Genero" />
                             </f:facet>
-                            <h:outputText id="idQtdAssentos" value="#{sala.quantidadeAssentos}" />
+                            <h:outputText id="idGenero" value="#{filme.generoFilme}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Sinopse" />
+                            </f:facet>
+                            <h:outputText id="idSinopse" value="#{filme.sinopseFilme}" />
                         </h:column>
                         <h:column >
                             <f:facet name="header">
                                 <h:outputText value="Operação" />
                             </f:facet>
-                            <h:commandLink value="Remover" action="#{salasMB.removerSala(sala)}"/>
+                            <h:commandLink value="Remover" action="#{filmesMB.removerSala(filme)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Nova Sala" action="#{salasMB.novaSala()}"/>
+                    <h:commandButton value="Novo Filme" action="#{filmesMB.novoFilme()}"/>
                     <h:button value="Voltar" outcome="/admin/index"/>
                     <br/><br/>
                     <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>

@@ -44,7 +44,7 @@ public class UsuarioMB {
 
     public String addUsuarios() {
         listaUsuarios.add(usuarioSelecionado);
-        return (this.novoUsuario());
+        return ("/admin/formUsuario?faces-redirect=true");
     }
 
     public String editarUsuario(Usuario u) {

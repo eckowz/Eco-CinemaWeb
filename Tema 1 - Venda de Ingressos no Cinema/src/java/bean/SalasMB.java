@@ -38,16 +38,16 @@ public class SalasMB {
         return listaSalas;
     }
 
-    public String addSalas() {
-        listaSalas.add(salaSelecionada);
-        return (this.novaSala());
-    }
-
     public String novaSala() {
         salaSelecionada = new Sala();
         return ("/admin/formCadastroSala?faces-redirect=true");
     }
-    
+
+    public String addSalas() {
+        listaSalas.add(salaSelecionada);
+        return ("/admin/formSala?faces-redirect=true");
+    }
+
     public void removerSala(Sala sala) {
         listaSalas.remove(sala);
     }

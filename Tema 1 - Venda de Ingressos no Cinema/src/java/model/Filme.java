@@ -19,12 +19,23 @@ public class Filme {
         this.sinopseFilme = sinopseFilme;
     }
 
+    public Filme() {
+    }
+
     public int getCodigoFilme() {
         return codigoFilme;
     }
 
+    public void setCodigoFilme(int codigoFilme) {
+        this.codigoFilme = codigoFilme;
+    }
+
     public String getNomeFilme() {
         return nomeFilme;
+    }
+
+    public void setNomeFilme(String nomeFilme) {
+        this.nomeFilme = nomeFilme;
     }
 
     public String getGeneroFilme() {

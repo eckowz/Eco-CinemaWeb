@@ -28,6 +28,11 @@
     width: 150px;
 }
 
+#content {
+    background-color: #ccc;
+    margin: 0 auto;
+}
+
 .center_content {
     margin-right: 10%;
     margin-left: 10%;
@@ -50,15 +55,41 @@
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
+.radio {
+    position:relative; /* Position so children are relative to this container */
+    border:0; /* Remove the border */
+}
 
+.radio span {
+    position:absolute; /* Take the content of the legend out of flow */
+    top:0;left:0; /* and position it to the top left of the fieldset */
+    width:5em; /* Same width as labels */
+}
+
+.radio ul {
+    margin-left:5em; /* Since the legend is out of flow. set margin, so inputs are inline */
+    list-style:none; /* Dont want bullets */
+}
+
+.radio li {
+    position:relative; /* Fix a bug in IE zoom functionality */
+    display:inline; /* Display the inputs in a line */
+    white-space:nowrap; /* We dont want a label to wrap between the input and label */
+}
+
+.radio label, .radio input {
+    width:auto; /* Reset the width on the label from the 5em, set earlier */
+    float:none; /* Reset the float from left on the label, set earlier */
+    vertical-align:middle; /* Align the radio buttons with the inputs */
+}
