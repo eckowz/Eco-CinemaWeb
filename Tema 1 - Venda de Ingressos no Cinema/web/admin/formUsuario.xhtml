@@ -9,7 +9,7 @@
         <ui:composition template="../template.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="" value="#{usuarioMB.listaUsuarios}" border="1">
+                    <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
                         <f:facet name="header">
                             <h:outputText value="Tabela de Usuários" />
                         </f:facet>

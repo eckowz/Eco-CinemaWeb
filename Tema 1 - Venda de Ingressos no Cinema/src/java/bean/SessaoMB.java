@@ -13,16 +13,18 @@ public class SessaoMB {
 
     private List<Sessao> listaSessoes;
     private Sessao sessaoSelecionada;
+    FilmesMB filmeMB = new FilmesMB();
+    SalasMB salaMB = new SalasMB();
 
     public SessaoMB() {
-        FilmesMB filmeMB = new FilmesMB();
-        SalasMB salaMB = new SalasMB();
+        //FilmesMB filmeMB = new FilmesMB();
+        //SalasMB salaMB = new SalasMB();
         listaSessoes = new ArrayList<Sessao>();
         listaSessoes.add(new Sessao("28-05-2015 15:30", filmeMB.buscarFilme(1), salaMB.buscarSala(3)));
         listaSessoes.add(new Sessao("28-05-2015 15:30", filmeMB.buscarFilme(3), salaMB.buscarSala(1)));
         listaSessoes.add(new Sessao("28-05-2015 15:30", filmeMB.buscarFilme(2), salaMB.buscarSala(2)));
     }
-
+    
     public Sessao getSessaoSelecionada() {
         return sessaoSelecionada;
     }
@@ -50,7 +52,6 @@ public class SessaoMB {
     }
 
     public int proxSessao() {
-
         int k = 0;
         for (Sessao sessao : listaSessoes) {
             k = k + 1;
@@ -64,6 +65,7 @@ public class SessaoMB {
         return 0;
     }
 
+    
     public boolean sessaoExiste(String horario) {
         for (Sessao sessao : listaSessoes) {
             if (sessao.getHorario().equals(horario)) {

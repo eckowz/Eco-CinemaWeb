@@ -17,10 +17,17 @@
                         <h:inputText id="idHorario" value="#{sessaoMB.sessaoSelecionada.horario}" />
 
                         <h:outputLabel for="idFilme" value="Filme:"/>
-                        <h:inputText id="idFilme" value="#{sessaoMB.sessaoSelecionada.filme}" />
+
+                        <h:selectOneMenu id="idFilme" value="#{sessaoMB.sessaoSelecionada.filme}">
+                             <f:selectItem itemLabel="Escolha" noSelectionOption="true" />
+                            <f:selectItems var="f" value="#{filmesMB.listaFilmes}"  itemLabel="#{f.nomeFilme}"/>
+                        </h:selectOneMenu>
 
                         <h:outputLabel for="idSala" value="Sala:"/>
-                        <h:inputText id="idSala" value="#{sessaoMB.sessaoSelecionada.sala}" />
+                        <h:selectOneMenu id="idSala" value="#{sessaoMB.sessaoSelecionada.sala}">
+                            <f:selectItem itemLabel="Escolha" noSelectionOption="true" />
+                            <f:selectItems var="s" value="#{salasMB.listaSalas}" itemLabel="#{s.codigoSala}"/>
+                        </h:selectOneMenu>
 
                         <h:commandButton value="Cadastrar" action="#{sessaoMB.addSessoes()}"/>
                         <h:button value="Voltar" outcome="/admin/index"/>
