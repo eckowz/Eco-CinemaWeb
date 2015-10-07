@@ -12,6 +12,7 @@ import model.Sessao;
 public class SessaoMB {
 
     private List<Sessao> listaSessoes;
+    private Sessao sessaoSelecionada;
 
     public SessaoMB() {
         FilmesMB filmeMB = new FilmesMB();
@@ -22,15 +23,45 @@ public class SessaoMB {
         listaSessoes.add(new Sessao("28-05-2015 15:30", filmeMB.buscarFilme(2), salaMB.buscarSala(2)));
     }
 
-    public boolean addHorario(Sessao horario) {
-        if (sessaoExiste(horario.getHorario())) {
-            return false;
-        }
-        return (listaSessoes.add(horario));
+    public Sessao getSessaoSelecionada() {
+        return sessaoSelecionada;
+    }
+
+    public void setSessaoSelecionada(Sessao sessaoSelecionada) {
+        this.sessaoSelecionada = sessaoSelecionada;
     }
 
     public List<Sessao> getListaSessoes() {
         return listaSessoes;
+    }
+
+    public String novaSessao() {
+        sessaoSelecionada = new Sessao();
+        return ("/admin/formCadastroSessao?faces-redirect=true");
+    }
+
+    public String addSessoes() {
+        listaSessoes.add(sessaoSelecionada);
+        return ("/admin/formSessao?faces-redirect=true");
+    }
+
+    public void removerSessao(Sessao sessao) {
+        listaSessoes.remove(sessao);
+    }
+
+    public int proxSessao() {
+
+        int k = 0;
+        for (Sessao sessao : listaSessoes) {
+            k = k + 1;
+            if (sessao.getCodSessao() != k) {
+                if (listaSessoes.size() == k) {
+                    return (k + 1);
+                }
+                return (k);
+            }
+        }
+        return 0;
     }
 
     public boolean sessaoExiste(String horario) {

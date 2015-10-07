@@ -17,12 +17,33 @@ public class Sessao implements Comparable<Sessao> {
         this.sala = sala;
     }
 
+    public Sessao() {
+        this.codSessao = CODIGO_GERADO;
+        CODIGO_GERADO++;
+    }
+
     public int getCodSessao() {
         return codSessao;
     }
 
+    public void setCodSessao(int codSessao) {
+        this.codSessao = codSessao;
+    }
+
+    public int getAssentosDisponiveis() {
+        return assentosDisponiveis;
+    }
+
+    public void setAssentosDisponiveis(int assentosDisponiveis) {
+        this.assentosDisponiveis = assentosDisponiveis;
+    }
+
     public String getHorario() {
         return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public Filme getFilme() {
